@@ -1,0 +1,60 @@
+<link rel="stylesheet" type="text/css" href="jquery.fancybox-1.3.4.css" media="screen" />     
+{% load sekizai_tags %}
+{% load filertags %}
+{% comment %}
+<!-- SmartSnippets Variables
+topic1=MerlinField
+details_link_visible1=Select|values=Yes,No
+details_link_text1=TextField
+
+topic2=MerlinField
+details_link_visible2=Select|values=Yes,No
+details_link_text2=TextField
+
+topic3=MerlinField
+details_link_visible3=Select|values=Yes,No
+details_link_text3=TextField
+-->
+{% endcomment %}
+<div class="row-fluid">
+
+    <div class="span12 box promo-container promo3 with-image clearfix">
+
+        <div class="promo span4 clearfix">
+            <a href="{{ topic1.url }}" class="promo-link video"><img src="{{ topic1.image }}" alt="{{ topic1.title }}"  width="300" height="127"/></a>
+            <h2><a href="{{ topic1.url }}" class="video">{{ topic1.title|truncatechars:55 }}</a></h2>
+            <p>{{ topic1.short_description }}</p>
+            {% if "Yes" in details_link_visible1 %}
+                <div class="read-more">
+                    <a href="{{ topic1.url }}" class="video">{{ details_link_text1 }} <span>&gt;</span></a>
+                </div>
+            {% endif %}
+        </div>
+            <div class="promo span4 clearfix">
+                <a href="{{ topic2.url }}" class="promo-link video"><img src="{{ topic2.image }}" alt="{{ topic2.title }}"  width="300"
+                                                height="127"/></a>
+                <h2><a href="{{ topic2.url }}" class="video">{{ topic2.title|truncatechars:55 }}</a></h2>
+                <p>{{ topic2.short_description }}</p>
+                {% if "Yes" in details_link_visible2 %}
+                    <div class="read-more">
+                        <a href="{{ topic2.url }}" class="video">{{ details_link_text2 }} <span>&gt;</span></a>
+                    </div>
+                {% endif %}
+            </div>
+        <div class="promo span4 clearfix">
+            <a href="{{ topic3.url }}" class="promo-link video"><img src="{{ topic3.image }}" alt="{{ topic3.title }}"  width="300" height="127"/></a>
+            <h2><a href="{{ topic3.url }}" class="video">{{ topic3.title|truncatechars:55 }}</a></h2>
+            <p>{{ topic3.short_description }}</p>
+            {% if "Yes" in details_link_visible3 %}
+                <div class="read-more">
+                    <a href="{{ topic3.url }}" class="video">{{ details_link_text3 }} <span>&gt;</span></a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    {% addtoblock "js" %}
+<script type="text/javascript" src="jquery.fancybox-1.3.4.pack.js"></script>
+    <script type="text/javascript" src="video.js"></script>
+
+{% endaddtoblock %}
+</div>
